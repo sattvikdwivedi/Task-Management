@@ -1,12 +1,18 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik'
-import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { Navigate } from 'react-router-dom';
 import { toast } from 'react-toastify'
 import * as yup from 'yup'
 import { useAuth } from '../../../context/Auth.context'
 const Login = () => {
     const {loginUser} = useAuth()
     const navigate = useNavigate()
+    const { user } = useAuth();
+    const token = localStorage.getItem("token");
+
+    if (user.name || token) {
+      return <Navigate to="/" />;
+  }
 
 
   type LoginType = {
@@ -48,7 +54,7 @@ const Login = () => {
               <h1>Login</h1>
             </div>
             <div className="mb-3">
-              <label htmlFor="email">EMail <span className="text-danger">*</span> </label>
+              <label htmlFor="email">Email <span className="text-danger">*</span> </label>
               <Field name="email" id="email" type="text" className="form-control" placeholder="john@gmail.com" />
               <ErrorMessage name='email' component={'p'} className='text-sm text-danger' />
             </div>

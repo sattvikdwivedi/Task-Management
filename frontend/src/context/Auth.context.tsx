@@ -13,6 +13,7 @@ interface AuthContextIf {
     user: UserType
     setUser: React.Dispatch<React.SetStateAction<UserType>>
     logoutUser:()=>void
+    
 }
 
 const AuthContext = createContext<AuthContextIf>({

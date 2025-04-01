@@ -1,4 +1,3 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
 import { useAuth } from '../context/Auth.context'
 
@@ -40,7 +39,7 @@ const Header = () => {
 
               }
               <li className="nav-item">
-                <Link to={'/'} className="  nav-link"  >Home</Link>
+                <Link to={'/'} className="  nav-link"  ></Link>
               </li>
                          
 
